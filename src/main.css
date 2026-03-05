@@ -6,8 +6,11 @@
     text-decoration: none;
     color: #000;
 }
-#app {
+html, body, #app {
+    width: 100vw;
+    height: 100vh;
+}
+#app {    
     display: flex;
-    flex-direction: row;
-    min-height: 100vh;
+    flex-direction: row;        
 }
