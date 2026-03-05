@@ -1,10 +1,9 @@
 <template>
     <article>
         <div class="title">{{ title }}</div>
-        <div class="at">{{ at }}</div>
-        <div class="where">{{ where }}</div>
-        <div class="when">{{ experienceTime }} • {{ when }}</div>
-        <div class="what">{{ what }}</div>
+        <div>{{ at }} 🌍{{ where }}</div>
+        <div>{{ experienceTime }} • {{ when }}</div>
+        <div>{{ what }}</div>
         <div class="skills">
             <div v-for="skill in skillsArray" :key="skill">{{ skill }}</div>        
         </div>
@@ -77,6 +76,10 @@ article {
     flex-direction: column;
     gap: 5px;
 }
+.title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
 .skills {
     display: flex;
     flex-direction: row;
@@ -84,8 +87,7 @@ article {
     gap: 5px;
 
     div{
-        display: block;
-        border: 1px solid black;
+        border:     1px solid black;
         border-radius: 100vw;
         padding: 5px 10px;
     }
