@@ -7,9 +7,20 @@
     color: #000;
 }
 
-#app {    
+a{
+    &:hover{
+        filter: invert();
+    }
+
+    img{
+        display: inline-block;
+        vertical-align: bottom;
+    }
+}
+
+#app {
     display: flex;
-    flex-direction: row;
-    height: 100vh;
-    height: 100svh;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(0deg, rgb(165, 165, 255), rgb(200, 200, 255));
 }

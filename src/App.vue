@@ -10,7 +10,12 @@ export default {
 </script>
 
 <template>
-  <aside>
+  <header>
+    <nav>
+      <a href="#experience">/Experience</a>
+      <a href="#projects">/Projects</a>
+      <a href="#contact">/Contact</a>
+    </nav>
     <div>
       <h1>Nazar</h1>
       <p>Frontend Developer</p>
@@ -30,23 +35,18 @@ export default {
         <img src="/assets/github.png" alt="GitHub" title="GitHub">
       </a>
     </div>
-    <div>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </aside>
+  </header>
   <main>
     <section id="experience">
       <h1>Experience</h1>
-      <Experience title="Full Stack Developer" at="iS Intelligent Solutions" where="Maia, Portugal"
+      <Experience title="Full Stack Developer" at="iS Intelligent Solutions" atLink="https://is-intelligentsolutions.com" where="Maia, Portugal"
         when="May 2021 - Sep 2023"
         what="I designed and implemented dynamic, responsive web pages with a focus on usability and performance. I contributed to the development of interactive dashboards that enabled clear and efficient data visualization. I improved system security by implementing two-factor authentication (2FA), strengthening protection against unauthorized access. I also developed calendar management tools for the support team, allowing clear visualization of working hours and more effective coordination of daily workforce activities. Additionally, I built automation scripts to collect, transform, and import data from multiple sources and formats including FTP files, CSV, XLSX, and REST/SOAP APIs into a centralized database, improving data integration and reducing manual processing."
         skills="HTML,CSS,JavaScript,PHP,MySQL,API (REST & SOAP),Automations,Database Management,2FA Implementation" />
-      <Experience title="Computer Assistant" at="iS Intelligent Solutions" where="Maia, Portugal"
+      <Experience title="Computer Assistant" at="iS Intelligent Solutions" atLink="https://is-intelligentsolutions.com" where="Maia, Portugal"
         when="Feb 2019 - Jun 2019" what="Curricular Internship"
         skills="Computer Management,Data Backup Solutions,Web Development,HTML,CSS,JavaScript" />
-      <Experience title="Technical Support" at="Porto Business School" where="Porto, Portugal"
+      <Experience title="Technical Support" at="Porto Business School" atLink="https://www.pbs.up.pt" where="Porto, Portugal"
         when="Feb 2016 - Jun 2016" what="Curricular Internship"
         skills="Problem-solving,Communication,Technical Support,Linux,Windows,MacOS" />
     </section>
@@ -80,29 +80,19 @@ address {
   }
 }
 
-aside,
+header,
 main {
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
   gap: 1rem;
+  min-width: 15rem;
 }
 
-aside {
-  align-items: end;
-  min-width: 15rem;
-  width: 30%;
-  background-color: rgb(165, 165, 255);
-}
-
-main {
-  align-items: start;
-  min-width: 15rem;
-  width: 70%;
-  background-color: rgb(200, 200, 255);
-  overflow: auto;
-  scroll-behavior: smooth;
+nav{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
 }
 
 section {
@@ -110,6 +100,11 @@ section {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  box-shadow: 0 0 10px 0px #eee;
+  border: 0.1rem solid #eee;
+  border-radius: 1rem;
+  padding: 1rem;
 
   h1 {
     text-align: center;

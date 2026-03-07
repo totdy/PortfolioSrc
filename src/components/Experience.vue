@@ -1,14 +1,21 @@
 <template>
     <article>
-        <div class="title">{{ title }}</div>
-        <div>{{ at }} 🌍{{ where }}</div>
-        <div>{{ experienceTime }} • {{ when }}</div>
+        <div class="title">
+            {{ title }}
+            <div>
+                <p>{{ when }}</p>
+                <p>{{ experienceTime }}</p>
+            </div>
+        </div>
+        <div>
+            <a :href="atLink" target="_blank">
+                {{ at }}<img src="/assets/link.svg">
+            </a>
+             🌍{{ where }}
+        </div>        
         <div>{{ what }}</div>
         <div class="skills">
-            <div v-for="skill in skillsArray" :key="skill">
-                <img :src="'/assets/' + skill.toLowerCase() + '.png'" :title="skill">
-                {{ skill }}
-            </div>        
+            <div v-for="skill in skillsArray" :key="skill">{{ skill }}</div>
         </div>
     </article>
 </template>
@@ -23,6 +30,10 @@ export default {
             required: true
         },
         at: {
+            type: String,
+            required: true
+        },
+        atLink: {
             type: String,
             required: true
         },
@@ -61,12 +72,12 @@ export default {
         let experienceTime = "";
         if (years > 0) {
             experienceTime += years + " year";
-            if(years > 1)experienceTime += "s";            
+            if (years > 1) experienceTime += "s";
         }
         experienceTime += " ";
-        if(months > 0){
+        if (months > 0) {
             experienceTime += months + " month";
-            if(months > 1)experienceTime += "s";
+            if (months > 1) experienceTime += "s";
         }
 
         return { skillsArray, experienceTime };
@@ -80,20 +91,33 @@ article {
     flex-direction: column;
     gap: 0.5rem;
 }
+
 .title {
     font-size: 2rem;
     font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    div{
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
 }
+
 .skills {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 0.5rem;
 
-    div{
-        border: 0.1rem solid black;
+    div {
+        border: none;
         border-radius: 100rem;
-        padding: 0.5rem 1rem;
+        padding: 0.3rem 0.6rem;
+        background-color: rgba(255, 255, 255, 0.2);
     }
 }
 </style>
