@@ -18,4 +18,9 @@ a:hover{
     background-image: linear-gradient(0deg, rgb(165, 165, 255), rgb(200, 200, 255));
     overflow: hidden;
     padding: 1rem;
+    gap: 1rem;
+}
+
+.leaflet-control-attribution{
+    font-size: 0.7rem;
 }

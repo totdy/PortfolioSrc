@@ -3,6 +3,14 @@ import Experience from "./components/Experience.vue";
 import ExperienceDetails from "./components/ExperienceDetails.vue";
 import Map from "./components/Map.vue";
 
+const stack = {
+  php: "PHP",
+  mysql: "MySQL",
+  javascript: "JS",
+  html: "HTML",
+  css: "CSS",
+}
+
 </script>
 
 <template>
@@ -12,19 +20,29 @@ import Map from "./components/Map.vue";
     <a href="#contact">/Contact</a>
   </nav>
   <header>
-    <div>
+    <div class="intro">
       <h1>Hey! I'm Nazar</h1>
-      <p>Frontend Developer</p>
-      <address>
-        <p>Porto, Portugal <img src="/assets/pt.png" alt="Portugal flag" title="Portugal flag"></p>
-        <p>nazar@example.com <button title="Copy email">Copy</button></p>
-      </address>
-      <a href="https://github.com/totdy" target="_blank">
-        <img src="/assets/github.png" alt="GitHub" title="GitHub">
-      </a>
+      <p>I am a Full Stack Developer always looking for new challenges. If you have a project that you would like to work on, feel free to contact me.</p> 
+      <div>
+        <a href="https://github.com/totdy" target="_blank">
+          <img src="/assets/github.png" alt="GitHub" title="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/nazar-poritskiy-7b8a04230" target="_blank">
+          <img src="/assets/linkedin.png" alt="LinkedIn" title="LinkedIn">
+        </a>
+        <a href="mailto:nazarslim@gmail.com" target="_blank">
+          <img src="/assets/mail.png" alt="Email" title="Email">
+        </a>
+      </div>
     </div>
     <Map />
-    <div></div>
+    <fieldset id="stack">
+      <legend>My Stack</legend>
+      <div v-for=" (val, key) in stack">
+        <img :src="'/assets/' + key + '.png'">
+        {{ val }}
+      </div>
+    </fieldset>
   </header>
   <main>
     <fieldset id="experience">
@@ -52,7 +70,6 @@ import Map from "./components/Map.vue";
           :skills="['Problem olving', 'Communication', 'Help desk', 'Linux', 'Windows', 'MacOS']" />
       </Experience>
     </fieldset>
-
     <fieldset id="projects">
       <legend>Projects</legend>
       <article>
@@ -71,37 +88,41 @@ import Map from "./components/Map.vue";
 </template>
 
 <style scoped>
-address {
-  img {
-    width: 1.5rem;
-    vertical-align: middle;
-    border-radius: 0.2rem;
-  }
 
-  button {
-    display: inline-block;
+.intro{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+header,
+main,
+nav {
+  max-width: 60rem;
+}
+
+@media (max-width: 900px) {
+  header {
+    grid-template-columns: 1fr !important;
   }
 }
 
 header {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-template-rows: repeat(1, 1fr);
   gap: 1rem;
-
-  * {
-    outline: 1px solid red;
-  }
 }
 
 main {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
 }
 
 nav {
-  display: block;
+  display: none;
   flex-direction: row;
   position: sticky;
   top: 0;
@@ -116,9 +137,40 @@ legend {
 }
 
 fieldset {
-  max-width: 60rem;
   display: flex;
   flex-direction: column;
   gap: 3rem;
+}
+
+legend{
+  margin-inline: auto 0rem;
+}
+
+ul{
+  list-style: none;
+
+  li{
+    display: flex;
+    flex-direction: column;
+    border: 0.1rem solid #eee;
+    border-radius: 1rem;
+    align-items: center;
+  }
+}
+#stack {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(auto, 1fr);
+  gap: 1rem;
+
+  div{    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  img{
+    width: 3rem;
+  }
 }
 </style>

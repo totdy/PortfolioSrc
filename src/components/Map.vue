@@ -1,5 +1,8 @@
 <template>
-    <div ref="mapContainer"></div>
+    <fieldset>
+        <legend>Based In Porto, Portugal <img src="/assets/pt.png" alt="Portugal flag" title="Portugal flag"></legend>
+        <div class="map" ref="mapContainer"></div>
+    </fieldset>    
 </template>
 
 <script setup lang="ts">
@@ -20,7 +23,7 @@ onMounted(() => {
 
     L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
     {
-        attribution: "&copy; OpenStreetMap &copy; CARTO"
+        attribution: "OpenStreetMap | CARTO"
     }
     ).addTo(map)
 
@@ -28,8 +31,24 @@ onMounted(() => {
 </script>
 
 <style scoped>
-div {
-    height: 500px;
+.map {
+    height: 15rem;
     width: 100%;
+    border-radius: 0.5rem;
+}
+
+fieldset{
+    padding: 1rem;
+    overflow: hidden;
+}
+legend {
+    font-size: 1rem;
+    font-weight: normal;
+
+    img {
+        width: 1.5rem;
+        vertical-align: middle;
+        border-radius: 0.2rem;
+    }
 }
 </style>
