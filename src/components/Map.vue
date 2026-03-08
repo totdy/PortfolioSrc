@@ -3,22 +3,26 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import L from 'leaflet'
+import { onMounted, useTemplateRef } from "vue"
+import L from "leaflet"
 
-const mapContainer = ref<HTMLDivElement | null>(null)
+const mapContainer = useTemplateRef("mapContainer")
 
 onMounted(() => {
     if (!mapContainer.value) return
 
-    const map = L.map(mapContainer.value, { zoomControl: false })
-        .setView([41.1579, -8.6291], 11)
+    const map = L.map(
+        mapContainer.value, 
+        { 
+            zoomControl: false 
+        }
+    ).setView([41.1579, -8.6291], 11)
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
     {
-        attribution: '&copy; OpenStreetMap &copy; CARTO'
+        attribution: "&copy; OpenStreetMap &copy; CARTO"
     }
-).addTo(map)
+    ).addTo(map)
 
 })
 </script>

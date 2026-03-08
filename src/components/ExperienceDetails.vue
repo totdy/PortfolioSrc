@@ -2,20 +2,19 @@
     <div>
         <h2>
             <span>{{ title }} <span v-if="intern"> Intern</span></span>
-            <p :title="experienceTime">{{ when }}</p>
+            <p :title="experienceTime">{{ when[0] }} - {{ when[1] }}</p>
         </h2>        
         <ul>
-            <li v-for="whats in whatsArray" :key="whats">{{ whats }}</li>
+            <li v-for="what in whats" :key="what">{{ what }}</li>
         </ul>
         <ol>
-            <li v-for="skill in skillsArray" :key="skill">{{ skill }}</li>
+            <li v-for="skill in skills" :key="skill">{{ skill }}</li>
         </ol>
     </div>
 </template>
-<script lang="ts">
-export default {
-    name: "ExperienceDetails",
-    props: {
+<script setup lang="ts">
+const props = defineProps(
+    {
         intern: {
             type: Boolean,
             required: true
@@ -25,48 +24,41 @@ export default {
             required: true
         },
         when: {
-            type: String,
+            type: Array<string>,
             required: true
         },
-        what: {
-            type: String,
+        whats: {
+            type: Array<string>,
             required: true
         },
         skills: {
-            type: String,
+            type: Array<string>,
             required: true
         }
-    },
-    setup(props) {
-        const skillsArray = props.skills.split(",");
-        const whatsArray = props.what.split(".").filter(item => item !== "");
+    });
 
-        const [experienceStart, experienceEnd] = props.when.split(" - ");
-        const start = new Date(experienceStart || "");
-        const end = new Date(experienceEnd || "");
-        let years = end.getFullYear() - start.getFullYear();
-        let months = end.getMonth() - start.getMonth();
+const start = new Date(props.when[0]!);
+const end = new Date(props.when[1]!);
+let years = end.getFullYear() - start.getFullYear();
+let months = end.getMonth() - start.getMonth();
 
-        if (months < 0) {
-            years--;
-            months += 12;
-        }
-        months++;
-
-        let experienceTime = "";
-        if (years > 0) {
-            experienceTime += years + " year";
-            if (years > 1) experienceTime += "s";
-        }
-        experienceTime += " ";
-        if (months > 0) {
-            experienceTime += months + " month";
-            if (months > 1) experienceTime += "s";
-        }
-
-        return { skillsArray, experienceTime, whatsArray };
-    }
+if (months < 0) {
+    years--;
+    months += 12;
 }
+months++;
+
+let experienceTime = "";
+if (years > 0) {
+    experienceTime += years + " year";
+    if (years > 1) experienceTime += "s";
+}
+experienceTime += " ";
+if (months > 0) {
+    experienceTime += months + " month";
+    if (months > 1) experienceTime += "s";
+}
+
 </script>
 <style scoped>
 

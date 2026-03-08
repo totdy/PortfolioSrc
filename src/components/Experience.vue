@@ -8,17 +8,15 @@
         <div>
             <a :href="atLink" target="_blank">
                 <h1>{{ at }}<img src="/assets/link.svg"></h1>
-            </a>            
+            </a>
             <slot></slot>
         </div>
     </article>
 </template>
 
-<script lang="ts">
-
-export default {
-    name: "Experience",
-    props: {
+<script setup lang="ts">
+const props = defineProps(
+    {
         at: {
             type: String,
             required: true
@@ -31,13 +29,10 @@ export default {
             type: String,
             required: true
         }
-    },
-
-};
+    })
 </script>
 
 <style scoped>
-
 article {
     display: flex;
     flex-direction: row;
@@ -50,7 +45,7 @@ div {
     gap: 1rem;
 }
 
-a{
+a {
     height: fit-content;
 }
 

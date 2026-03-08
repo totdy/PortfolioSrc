@@ -1,12 +1,8 @@
-<script lang="ts">
+<script setup lang="ts">
 import Experience from "./components/Experience.vue";
 import ExperienceDetails from "./components/ExperienceDetails.vue";
 import Map from "./components/Map.vue";
 
-export default {
-  name: "App",
-  components: { Experience, ExperienceDetails, Map },
-};
 </script>
 
 <template>
@@ -34,29 +30,26 @@ export default {
     <fieldset id="experience">
       <legend>Experience</legend>
       <Experience at="iS Intelligent Solutions" atLink="https://is-intelligentsolutions.com" logo="is.png">
-        <ExperienceDetails
-          title="Full Stack Developer"
-          :intern="false"
-          when="May 2021 - Sep 2023"
-          what="Improved system security by implementing two-factor authentication (2FA). Developed calendar management tools for the support team, allowing clear visualization of schedule and improved coordination of daily workforce activities. Built automation scripts to collect, transform, and import data from multiple sources and formats including CSV, XLSX files and REST/SOAP APIs into a centralized database, improving data integration and reducing manual processin."
-          skills="Web Development,PHP,MySQL,API (REST & SOAP),Automations,Database Management,2FA Implementation"
-        />
         <ExperienceDetails 
-          title="Computer Assistant"
-          :intern="true"
-          when="Feb 2019 - Jun 2019"
-          what="Designed and implemented dynamic, responsive web pages with a focus on usability and performance. Contributed to the development of interactive dashboards that enabled clear and efficient data visualization."
-          skills="Computer management,Data Backup Solutions,HTML,CSS,JavaScript"
-        />
+          title="Full Stack Developer" 
+          :intern="false" 
+          :when="['May 2021', 'Sep 2023']"
+          :whats="['Improved system security by implementing two-factor authentication (2FA)', 'Developed calendar management tools for the support team, allowing clear visualization of schedule and improved coordination of daily workforce activities', 'Built automation scripts to collect, transform, and import data from multiple sources and formats including CSV, XLSX files and REST/SOAP APIs into a centralized database, improving data integration and reducing manual processin']"
+          :skills="['Web Development', 'PHP', 'MySQL', 'API (REST & SOAP)', 'Automations', 'Database Management', '2FA Implementation']" />
+        <ExperienceDetails 
+          title="Computer Assistant" 
+          :intern="true" 
+          :when="['Feb 2019', 'Jun 2019']"
+          :whats="['Designed and implemented dynamic, responsive web pages with a focus on usability and performance', 'Contributed to the development of interactive dashboards that enabled clear and efficient data visualization']"
+          :skills="['Computer management', 'Data Backup Solutions', 'HTML', 'CSS', 'JavaScript']" />
       </Experience>
-      <Experience at="Porto Business School" atLink="https://www.pbs.up.pt" logo="pbs.png" >
+      <Experience at="Porto Business School" atLink="https://www.pbs.up.pt" logo="pbs.png">
         <ExperienceDetails 
-          title="Technical Support"
-          :intern="true"
-          when="Feb 2016 - Jun 2016" 
-          what="Responded to help desk tickets, diagnosing software and hardware problems. Guided users through step-by-step solutions. Helped onboarding new users by seting up their accounts and granting the necessary system accesses."
-          skills="Problem olving,Communication,Help desk,Linux,Windows,MacOS"
-        />
+          title="Technical Support" 
+          :intern="true" 
+          :when="['Feb 2016', 'Jun 2016']"
+          :whats="['Responded to help desk tickets, diagnosing software and hardware problems', 'Guided users through step-by-step solutions', 'Helped onboarding new users by seting up their accounts and granting the necessary system accesses']"
+          :skills="['Problem olving', 'Communication', 'Help desk', 'Linux', 'Windows', 'MacOS']" />
       </Experience>
     </fieldset>
 
@@ -90,15 +83,15 @@ address {
   }
 }
 
-header{
+header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(1, 1fr);
   gap: 1rem;
 
-  *{
+  * {
     outline: 1px solid red;
-  }  
+  }
 }
 
 main {
@@ -128,6 +121,4 @@ fieldset {
   flex-direction: column;
   gap: 3rem;
 }
-
-legend {}
 </style>
