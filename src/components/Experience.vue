@@ -1,22 +1,21 @@
 <template>
     <article>
-        <div class="title">
-            {{ title }}
+        <a :href="atLink" target="_blank">
             <div>
-                <p>{{ when }}</p>
-                <p>{{ experienceTime }}</p>
-            </div>
-        </div>
-        <div>
-            <a :href="atLink" target="_blank">
+                <img :src="'/assets/' +  logo " :title="at + 'Internship'">
+            </div>            
+            <h1>
                 {{ at }}<img src="/assets/link.svg">
-            </a>
-             🌍{{ where }}
+            </h1>
+        </a>
+        <div>
+            <span>{{ title }}</span>
+            <span>{{ when }} {{ experienceTime }}</span>
         </div>        
         <div>{{ what }}</div>
-        <div class="skills">
-            <div v-for="skill in skillsArray" :key="skill">{{ skill }}</div>
-        </div>
+        <ul>
+            <li v-for="skill in skillsArray" :key="skill">{{ skill }}</li>
+        </ul>
     </article>
 </template>
 
@@ -25,6 +24,10 @@
 export default {
     name: "Experience",
     props: {
+        intern: {
+            type: Boolean,
+            required: true
+        },
         title: {
             type: String,
             required: true
@@ -37,7 +40,7 @@ export default {
             type: String,
             required: true
         },
-        where: {
+        logo: {
             type: String,
             required: true
         },
@@ -92,32 +95,47 @@ article {
     gap: 0.5rem;
 }
 
-.title {
-    font-size: 2rem;
-    font-weight: bold;
+a {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    gap: 1rem;
+
+    h1{
+        font-size: 2rem;
+        font-weight: bold;
+    }
 
     div{
-        font-size: 1rem;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 1rem;
+        border-radius: 1000rem;
+    }
+    
+    img{        
+        height: 1.5rem;
     }
 }
 
-.skills {
+ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.5rem;   
 
-    div {
-        border: none;
+    li {                
         border-radius: 100rem;
         padding: 0.3rem 0.6rem;
         background-color: rgba(255, 255, 255, 0.2);
+
+        &::marker {
+            content: "";
+        }
     }
 }
 </style>

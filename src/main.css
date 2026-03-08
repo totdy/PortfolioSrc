@@ -2,20 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: monospace;
+    font-family: monospace, Inter, sans-serif;
     text-decoration: none;
     color: #000;
 }
 
-a{
-    &:hover{
-        filter: invert();
-    }
-
-    img{
-        display: inline-block;
-        vertical-align: bottom;
-    }
+a:hover{
+    filter: invert();
 }
 
 #app {
@@ -23,4 +16,6 @@ a{
     flex-direction: column;
     align-items: center;
     background-image: linear-gradient(0deg, rgb(165, 165, 255), rgb(200, 200, 255));
+    overflow: hidden;
+    padding: 1rem;
 }

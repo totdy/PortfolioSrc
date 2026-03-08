@@ -10,12 +10,12 @@ export default {
 </script>
 
 <template>
+  <nav>
+    <a href="#experience">/Experience</a>
+    <a href="#projects">/Projects</a>
+    <a href="#contact">/Contact</a>
+  </nav>
   <header>
-    <nav>
-      <a href="#experience">/Experience</a>
-      <a href="#projects">/Projects</a>
-      <a href="#contact">/Contact</a>
-    </nav>
     <div>
       <h1>Nazar</h1>
       <p>Frontend Developer</p>
@@ -37,33 +37,35 @@ export default {
     </div>
   </header>
   <main>
-    <section id="experience">
-      <h1>Experience</h1>
-      <Experience title="Full Stack Developer" at="iS Intelligent Solutions" atLink="https://is-intelligentsolutions.com" where="Maia, Portugal"
-        when="May 2021 - Sep 2023"
-        what="I designed and implemented dynamic, responsive web pages with a focus on usability and performance. I contributed to the development of interactive dashboards that enabled clear and efficient data visualization. I improved system security by implementing two-factor authentication (2FA), strengthening protection against unauthorized access. I also developed calendar management tools for the support team, allowing clear visualization of working hours and more effective coordination of daily workforce activities. Additionally, I built automation scripts to collect, transform, and import data from multiple sources and formats including FTP files, CSV, XLSX, and REST/SOAP APIs into a centralized database, improving data integration and reducing manual processing."
+    <fieldset id="experience">
+      <legend>Experience</legend>
+      <Experience :intern="false" title="Full Stack Developer" at="iS Intelligent Solutions"
+        atLink="https://is-intelligentsolutions.com" logo="is.png" when="May 2021 - Sep 2023"
+        what="I improved system security by implementing two-factor authentication (2FA). I also developed calendar management tools for the support team, allowing clear visualization of schedule and improved coordination of daily workforce activities. Additionally, I built automation scripts to collect, transform, and import data from multiple sources and formats including FTP files, CSV, XLSX, and REST/SOAP APIs into a centralized database, improving data integration and reducing manual processin."
         skills="HTML,CSS,JavaScript,PHP,MySQL,API (REST & SOAP),Automations,Database Management,2FA Implementation" />
-      <Experience title="Computer Assistant" at="iS Intelligent Solutions" atLink="https://is-intelligentsolutions.com" where="Maia, Portugal"
-        when="Feb 2019 - Jun 2019" what="Curricular Internship"
+      <Experience :intern="true" title="Computer Assistant" at="iS Intelligent Solutions"
+        atLink="https://is-intelligentsolutions.com" logo="is.png" when="Feb 2019 - Jun 2019"
+        what="I designed and implemented dynamic, responsive web pages with a focus on usability and performance. I contributed to the development of interactive dashboards that enabled clear and efficient data visualization."
         skills="Computer Management,Data Backup Solutions,Web Development,HTML,CSS,JavaScript" />
-      <Experience title="Technical Support" at="Porto Business School" atLink="https://www.pbs.up.pt" where="Porto, Portugal"
-        when="Feb 2016 - Jun 2016" what="Curricular Internship"
+      <Experience :intern="true" title="Technical Support" at="Porto Business School" atLink="https://www.pbs.up.pt"
+        logo="pbs.png" when="Feb 2016 - Jun 2016" what="Curricular Internship"
         skills="Problem-solving,Communication,Technical Support,Linux,Windows,MacOS" />
-    </section>
-    <section id="projects">
-      <h1>Projects</h1>
+    </fieldset>
+
+    <fieldset id="projects">
+      <legend>Projects</legend>
       <article>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien eget nunc efficitur efficitur. Sed
           at felis a enim efficitur bibendum. Curabitur ac ligula a odio efficitur tincidunt. Nulla facilisi.</p>
       </article>
-    </section>
-    <section id="contact">
-      <h1>Contact</h1>
+    </fieldset>
+    <fieldset id="contact">
+      <legend>Contact</legend>
       <article>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien eget nunc efficitur efficitur. Sed
           at felis a enim efficitur bibendum. Curabitur ac ligula a odio efficitur tincidunt. Nulla facilisi.</p>
       </article>
-    </section>
+    </fieldset>
   </main>
 </template>
 
@@ -82,33 +84,32 @@ address {
 
 header,
 main {
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  min-width: 15rem;
 }
 
-nav{
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
+nav {
+  display: block;
+  flex-direction: row;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-section {
-  max-width: 60rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-
-  box-shadow: 0 0 10px 0px #eee;
+fieldset,
+legend {
   border: 0.1rem solid #eee;
   border-radius: 1rem;
   padding: 1rem;
-
-  h1 {
-    text-align: center;
-    border-bottom: 0.1rem solid black;
-  }
 }
+
+fieldset {
+  max-width: 60rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+legend {}
 </style>
