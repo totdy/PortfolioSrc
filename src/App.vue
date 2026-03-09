@@ -23,10 +23,7 @@ const stack = {
     </nav>
     <section id="intro">
       <h1>Hey! I'm Nazar</h1>
-      <p>I am a Full Stack Developer always looking for new challenges. If you have a project that you would like to work on, feel free to contact me.</p> 
-      <p>Based in Porto, Portugal <img class="flag" src="/assets/pt.png" alt="Portugal flag" title="Portugal flag"></p>
-    </section>
-    <section id="map">
+      <p>I am a Full Stack Developer always looking for new challenges. If you have a project that you would like to work on, feel free to contact me.</p>
       <ul>
         <li>
           <a href="https://github.com/totdy" target="_blank">
@@ -44,6 +41,9 @@ const stack = {
           </a>
         </li>
       </ul>
+    </section>
+    <section id="map">
+      <div>Based in Porto, Portugal <img class="flag" src="/assets/pt.png" alt="Portugal flag" title="Portugal flag"></div>
       <Map />
     </section>
     <section id="stack">
@@ -52,7 +52,7 @@ const stack = {
         <div v-for=" (val, key) in stack">
           <LabeledImage :img="key + '.png'" :title="val" />
         </div>
-      </div> 
+      </div>      
     </section>
     <section id="work">
       <div class="title">Work Experience</div>
@@ -62,7 +62,7 @@ const stack = {
           :intern="false" 
           :when="['May 2021', 'Sep 2023']"
           :whats="['Improved system security by implementing two-factor authentication (2FA)', 'Developed calendar management tools for the support team, allowing clear visualization of schedule and improved coordination of daily workforce activities', 'Built automation scripts to collect, transform, and import data from multiple sources and formats including CSV, XLSX files and REST/SOAP APIs into a centralized database, improving data integration and reducing manual processin']"
-          :skills="['Web Development', 'PHP', 'MySQL', 'API (REST & SOAP)', 'Automations', 'Database Management', '2FA Implementation']" />
+          :skills="['Web Development', 'PHP', 'MySQL', 'API (REST & SOAP)', 'Automations', 'Database Management', '2FA']" />
         <ExperienceDetails 
           title="Computer Assistant" 
           :intern="true" 
@@ -109,6 +109,8 @@ const stack = {
   width: fit-content;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
+  font-weight: bold;
+  word-break: keep-all;
 }
 
 .stack {
