@@ -29,7 +29,7 @@ onMounted(() => {
 
 <style scoped>
 #mapContainer {
-    height: 10rem;
+    height: 11rem;
     width: 100%;
     border-radius: 0.5rem;
 

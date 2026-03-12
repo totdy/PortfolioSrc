@@ -17,11 +17,6 @@ const stack = {
 </script>
 
 <template>
-  <nav>
-    <a href="#work">/Experience</a>
-    <a href="#projects">/Projects</a>
-    <a href="#contact">/Contact</a>
-  </nav>
   <main>    
     <section id="intro">
       <h1>Hey! I'm Nazar</h1>
@@ -45,11 +40,11 @@ const stack = {
       </ul>
     </section>
     <section id="map">
-      <div>Based in Porto, Portugal <img class="flag" src="/assets/icons/pt.png" alt="Portugal flag" title="Portugal flag"></div>
+      <h4>Based in Porto, Portugal <img class="flag" src="/assets/icons/pt.png" alt="Portugal flag" title="Portugal flag"></h4>
       <Map />
     </section>
     <section id="stack">
-      <div class="title">My Stack</div>
+      <h3 class="title">My Stack</h3>
       <div class="stack"> 
         <div v-for=" (val, key) in stack">
           <LabeledImage :img="key + '.png'" :title="val" />
@@ -57,7 +52,7 @@ const stack = {
       </div>      
     </section>
     <section id="work">
-      <div class="title">Work Experience</div>
+      <h3 class="title">Work Experience</h3>
       <Experience at="iS Intelligent Solutions" atLink="https://is-intelligentsolutions.com" logo="is.png">
         <ExperienceDetails 
           title="Full Stack Developer" 
@@ -82,7 +77,7 @@ const stack = {
       </Experience>
     </section>
     <section id="projects">
-      <div class="title">Projects</div>
+      <h3 class="title">Projects</h3>
       <Project 
         name="Home Away" 
         description="A simple AirBnB clone made for my CTeSP final project in 2019"
@@ -121,7 +116,6 @@ const stack = {
   width: fit-content;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  font-weight: bold;
   word-break: keep-all;
 }
 
@@ -144,6 +138,7 @@ main {
       "intro map stack"
       "work work work"
       "projects projects projects";
+  grid-template-rows: auto;
 }
 
 @media (max-width: 900px) {
@@ -155,14 +150,6 @@ main {
       "work"
       "projects";
   }
-}
-
-nav {
-  display: none;
-  flex-direction: row;
-  position: sticky;
-  top: 0;
-  z-index: 100;
 }
 
 section{
@@ -179,6 +166,10 @@ section{
   background-color: var(--bg1);
 
   position: relative;
+
+  h4{    
+    font-size: 0.9rem;
+  }
 }
 
 ul{
