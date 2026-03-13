@@ -85,13 +85,6 @@ const stack = {
         :screens="['homeAway1.png','homeAway2.png','homeAway3.png']"
         source="https://github.com/totdy/HomeAway"
       />
-      <Project 
-        name="Home Away" 
-        description="A simple AirBnB clone made as my final project. "
-        :stack="['PHP', 'HTML', 'CSS', 'MySQL']"
-        :screens="['homeAway1.png','homeAway2.png','homeAway3.png']"
-        source="https://github.com/totdy/HomeAway"
-      />
     </section>
   </main>
 </template>
