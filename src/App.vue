@@ -2,7 +2,6 @@
 import Experience from "./components/Experience.vue";
 import ExperienceDetails from "./components/ExperienceDetails.vue";
 import LabeledImage from "./components/LabeledImage.vue";
-import Map from "./components/Map.vue";
 import Project from "./components/Project.vue";
 
 const stack = {
@@ -20,8 +19,8 @@ const stack = {
   <main>    
     <section id="intro">
       <h1>Hey! I'm Nazar</h1>
-      <p>I am a Full Stack Developer always looking for new challenges. If you have a project that you would like to work on, feel free to contact me.</p>
-      <p>Based in Porto, Portugal <img class="flag" src="/assets/icons/pt.png" alt="Portugal flag" title="Portugal flag"></p>
+      <p>I am a Full Stack Developer based in Porto, Portugal <img class="flag" src="/assets/icons/pt.png" alt="Portugal flag" title="Portugal flag"> always looking for new challenges. If you have a project that you would like to work on, feel free to contact me.</p>
+      <p></p>
       <ul>
         <li>
           <a href="https://github.com/totdy" target="_blank">
@@ -150,7 +149,6 @@ main {
   main {
     grid-template: 
       "intro"
-      "map" 
       "stack"
       "work"
       "projects";
