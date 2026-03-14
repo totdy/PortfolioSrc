@@ -7,12 +7,12 @@
         <ul>
             <li v-for="what in whats" :key="what">{{ what }}</li>
         </ul>
-        <ol>
-            <li v-for="skill in skills" :key="skill">{{ skill }}</li>
-        </ol>
+        <BubbleList :list="skills" />
     </div>
 </template>
 <script setup lang="ts">
+import BubbleList from './BubbleList.vue';
+
 const props = defineProps(
     {        
         title: {
@@ -72,20 +72,7 @@ ul{
     margin-bottom: 0.5rem;
 }
 
-ol {
-    list-style: none;
-    padding-left: 0;
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-
-    li {
-        background-color: rgba(255, 255, 255, 0.2);
-        padding: 0.25rem 0.5rem;
-        border-radius: 1rem;
-        font-size: 0.8rem;
-    }
+h1{
+    font-size: 1.5rem;
 }
 </style>

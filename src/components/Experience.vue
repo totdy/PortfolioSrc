@@ -48,12 +48,17 @@ div {
     gap: 0.5rem;
 }
 
+h3{
+    font-size: 1.3rem;
+    font-weight: normal;
+}
+
 span {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: oklch(from var(--bg2) calc(l/2 + 0.5) c h);
 
     padding: 0.6rem;
     width: 3rem;

@@ -7,8 +7,8 @@ import Project from "./components/Project.vue";
 
 const stack = {
   php: "PHP",
-  mysql: "MySQL",
-  javascript: "JS",
+  mysql: "MySQL",  
+  vuejs: "VUE",
   html: "HTML",
   typescript: "TS",
   css: "CSS",
@@ -21,6 +21,7 @@ const stack = {
     <section id="intro">
       <h1>Hey! I'm Nazar</h1>
       <p>I am a Full Stack Developer always looking for new challenges. If you have a project that you would like to work on, feel free to contact me.</p>
+      <p>Based in Porto, Portugal <img class="flag" src="/assets/icons/pt.png" alt="Portugal flag" title="Portugal flag"></p>
       <ul>
         <li>
           <a href="https://github.com/totdy" target="_blank">
@@ -58,13 +59,20 @@ const stack = {
           title="Full Stack Developer" 
           :intern="false" 
           :when="['May 2021', 'Sep 2023']"
-          :whats="['Improved system security by implementing two-factor authentication (2FA)', 'Developed calendar management tools for the support team, allowing clear visualization of schedule and improved coordination of daily workforce activities', 'Built automation scripts to collect, transform, and import data from multiple sources and formats including CSV, XLSX files and REST/SOAP APIs into a centralized database, improving data integration and reducing manual processin']"
+          :whats="[
+            'Improved system security by implementing two-factor authentication (2FA)',
+            'Developed calendar management tools for the support team, allowing clear visualization of schedules and improved coordination of daily workforce activities',
+            'Built automation scripts to collect, transform, and import data from multiple sources and formats, including CSV and XLSX files and REST/SOAP APIs, into a centralized database, improving data integration and reducing manual processing'
+          ]"
           :skills="['HTML|CSS|JS', 'PHP', 'MySQL', 'API (REST & SOAP)', 'Automations', 'Database Management', '2FA']" />
         <ExperienceDetails 
           title="Computer Assistant Internship" 
           :intern="true" 
           :when="['Feb 2019', 'Jun 2019']"
-          :whats="['Designed and implemented dynamic, responsive web pages with a focus on usability and performance', 'Contributed to the development of interactive dashboards that enabled clear and efficient data visualization']"
+          :whats="[
+            'Designed and implemented dynamic, responsive web pages with a focus on usability and performance',
+            'Contributed to the development of interactive dashboards that enabled clear and efficient data visualization'
+          ]"
           :skills="['Computer management', 'Data Backup Solutions', 'HTML', 'CSS', 'JavaScript']" />
       </Experience>
       <Experience at="Porto Business School" atLink="https://www.pbs.up.pt" logo="pbs.png">
@@ -72,7 +80,11 @@ const stack = {
           title="Technical Support Internship" 
           :intern="true" 
           :when="['Feb 2016', 'Jun 2016']"
-          :whats="['Responded to help desk tickets, diagnosing software and hardware problems', 'Guided users through step-by-step solutions', 'Helped onboarding new users by seting up their accounts and granting the necessary system accesses']"
+          :whats="[
+            'Responded to help desk tickets, diagnosing software and hardware problems',
+            'Guided users through step-by-step solutions', 
+            'Helped onboard new users by setting up their accounts and granting the necessary system access'
+          ]"
           :skills="['Problem solving', 'Communication', 'Help desk', 'Linux', 'Windows', 'MacOS']" />
       </Experience>
     </section>
@@ -80,7 +92,7 @@ const stack = {
       <h3 class="title">Projects</h3>
       <Project 
         name="Home Away" 
-        description="A simple AirBnB clone made as my final project. "
+        description="Developed a simple Airbnb clone as my final project."
         :stack="['PHP', 'HTML', 'CSS', 'MySQL']"
         :screens="['homeAway1.png','homeAway2.png','homeAway3.png']"
         source="https://github.com/totdy/HomeAway"
@@ -92,7 +104,7 @@ const stack = {
 <style scoped>
 
 #intro { grid-area: intro;}
-#map { grid-area: map;}
+#map { grid-area: map; display: none;}
 #stack { grid-area: stack;}
 #work { grid-area: work;}
 #projects { grid-area: projects;}
@@ -128,7 +140,7 @@ main {
   display: grid;
   gap: 1rem;
   grid-template: 
-      "intro map stack"
+      "intro intro stack"
       "work work work"
       "projects projects projects";
   grid-template-rows: auto;

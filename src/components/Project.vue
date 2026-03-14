@@ -10,9 +10,7 @@
         <div class="details">
             <h1>{{ name }}</h1>
             <p>{{ description }}</p>
-            <ol>
-                <li v-for="skill in stack" :key="skill">{{ skill }}</li>
-            </ol>
+            <BubbleList :list="stack"/>            
             <a v-if="source" :href="source" target="_blank">
                 <h3>Source<img src="/assets/icons/link.svg"></h3>
             </a>
@@ -25,6 +23,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import BubbleList from './BubbleList.vue';
 
 const props = defineProps({
     name: {
@@ -87,23 +86,6 @@ article {
     }
     .details{
         margin-bottom: 2rem;
-    }
-}
-
-ol {
-    list-style: none;
-    padding-left: 0;
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-
-    li {
-        background-color: rgba(255, 255, 255, 0.2);
-        padding: 0.25rem 0.5rem;
-        border-radius: 1rem;
-        font-size: 0.8rem;
     }
 }
 
