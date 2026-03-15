@@ -1,13 +1,17 @@
 <template>
-    <article>
-        <a :href="atLink" target="_blank">
-            <span>
-                <img :src="baseUrl + '/assets/icons/' + logo" :title="at + ' logo'">
-            </span>
-        </a>
+    <article>        
+        <span>
+            <img :src="baseUrl + '/assets/icons/' + logo" :title="at + ' logo'" :alt="at + ' logo'">
+        </span>
         <div>
             <a :href="atLink" target="_blank">
-                <h3>{{ at }}<img src="/assets/icons/link.svg"></h3>
+                <h2>
+                    {{ at }}<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-external-link ">
+                        <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"></path>
+                        <path d="M11 13l9 -9"></path>
+                        <path d="M15 4h5v5"></path>
+                    </svg>
+                </h2>
             </a>
             <slot></slot>
         </div>
@@ -42,15 +46,14 @@ article {
     gap: 1rem;
 }
 
+h2{
+    padding: 0.5rem;
+}
+
 div {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-}
-
-h3{
-    font-size: 1.3rem;
-    font-weight: normal;
+    gap: 1rem;
 }
 
 span {
@@ -58,7 +61,7 @@ span {
     align-items: center;
     justify-content: center;
 
-    background-color: oklch(from var(--bg2) calc(l/2 + 0.5) c h);
+    background-color: var(--bg2);
 
     padding: 0.6rem;
     width: 3rem;
@@ -67,6 +70,7 @@ span {
 
     img {
         width: -webkit-fill-available;
+        height: -webkit-fill-available;
         aspect-ratio: 1/1;
     }
 }

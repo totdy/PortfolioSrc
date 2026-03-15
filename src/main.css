@@ -1,6 +1,18 @@
-:root {
-    --bg1: rgb(255, 255, 255);
-    --bg2: rgb(205, 183, 255);
+:root[data-theme="light"] {
+    --bg1: #fff;
+    --bg2: #cdb7ff;
+    --tc: #272727;
+    --tch: #000
+}
+
+:root[data-theme="dark"] {
+    --bg1: #11031d;
+    --bg2: #28194d;
+    --tc: #dbdbdb;
+    --tch: #fff;
+    img:not(.ignoreTheme){
+        filter: invert(1) contrast(1);
+    }
 }
 
 * {
@@ -9,17 +21,31 @@
     box-sizing: border-box;
     font-family: monospace, Inter, sans-serif;
     text-decoration: none;
-    color: #000;
+    color: var(--tc);
 }
 
 a{
     height: fit-content;
     width: fit-content;
     
-    &:hover * {
-        font-weight: bolder !important;        
-        filter: invert(32%) sepia(77%) saturate(633%) hue-rotate(220deg) brightness(92%) contrast(90%);
+    &:hover {
+        * {
+            color: var(--tch) !important;
+            background-color: var(--bg2) !important;
+            border-radius: 0.5rem !important;
+        }
+        /*filter: invert(32%) sepia(77%) saturate(633%) hue-rotate(220deg) brightness(92%) contrast(90%);*/
     }
+}
+
+h1{
+    font-size: 2em;
+}
+h2{
+    font-size: 1.5em;
+}
+h3{
+    font-size: 1.17em;
 }
 
 #app {    
@@ -34,14 +60,4 @@ a{
     min-height: 100svh;
 
     position: relative;
-}
-
-.leaflet-control-attribution{
-    font-size: 0.7rem;
-    display: none;
-    border-radius: 0.5rem;
-}
-
-#mapContainer:hover .leaflet-control-attribution{
-    display: block;
 }

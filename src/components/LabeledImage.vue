@@ -1,34 +1,35 @@
 <template>
-    <div>        
+    <div>
         <img :src="baseUrl + '/assets/icons/' + img" :alt="title + ' icon'" :title="title">
         <p>{{ title }}</p>
-    </div>    
+    </div>
 </template>
 
 <script setup lang="ts">
-    const props = defineProps({
-        img: {
-            type: String,
-            required: true
-        },
-        title: {
-            type: String,
-            required: true
-        }
-    })
+const props = defineProps({
+    img: {
+        type: String,
+        required: true
+    },
+    title: {
+        type: String,
+        required: true
+    }
+})
 
-    const baseUrl = import.meta.env.BASE_URL
+const baseUrl = import.meta.env.BASE_URL
 </script>
 
 <style scoped>
-
-  div{    
+div {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
+    
+    padding: 0.5rem;
+}
 
-  img{
+img {
     width: 3rem;
-  }
+}
 </style>

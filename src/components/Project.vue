@@ -1,7 +1,7 @@
 <template>
     <article>
         <div class="carousel">
-            <img :src="baseUrl + 'assets/screenshots/' + screens[index]">
+            <img class="ignoreTheme" :src="baseUrl + 'assets/screenshots/' + screens[index]">
             <div>
                 <button @click="prev">←</button>
                 <button @click="next">→</button>
@@ -12,10 +12,24 @@
             <p>{{ description }}</p>
             <BubbleList :list="stack"/>            
             <a v-if="source" :href="source" target="_blank">
-                <h3>Source<img src="/assets/icons/link.svg"></h3>
+                <h3>
+                    Source
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.3rem" height="1.3rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-external-link ">
+                        <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"></path>
+                        <path d="M11 13l9 -9"></path>
+                        <path d="M15 4h5v5"></path>
+                    </svg>
+                </h3>
             </a>
             <a v-if="visit" :href="visit" target="_blank">
-                <h3>Visit<img src="/assets/icons/link.svg"></h3>
+                <h3>
+                    Visit
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.3rem" height="1.3rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-external-link ">
+                        <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"></path>
+                        <path d="M11 13l9 -9"></path>
+                        <path d="M15 4h5v5"></path>
+                    </svg>
+                </h3>
             </a>
         </div>
     </article>
@@ -87,6 +101,12 @@ article {
     .details{
         margin-bottom: 2rem;
     }
+}
+
+h3{
+    display: flex;
+
+    padding: 0.5rem;
 }
 
 .details {

@@ -22,7 +22,8 @@ ol {
     gap: 0.5rem;
 
     li {
-        background-color: oklch(from var(--bg2) calc(l/2 + 0.5) c h);
+        /*background-color: oklch(from var(--bg2) calc(l/2 + 0.5) c h);*/
+        background-color: var(--bg2);
         padding: 0.25rem 0.5rem;
         border-radius: 1rem;
         font-size: 0.8rem;

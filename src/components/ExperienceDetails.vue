@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="details">
         <div class="title">
-            <h1>{{ title }}</h1>
+            <h2>{{ title }}</h2>
             <p :title="experienceTime">{{ when[0] }} - {{ when[1] }}</p>
         </div>        
         <ul>
@@ -63,16 +63,16 @@ if (months > 0) {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;      
-    align-items: center;  
+    align-items: center;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 ul{
     padding-left: 1rem;
-
-    margin-bottom: 0.5rem;
-}
-
-h1{
-    font-size: 1.5rem;
 }
 </style>

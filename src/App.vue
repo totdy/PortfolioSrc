@@ -3,6 +3,7 @@ import Experience from "./components/Experience.vue";
 import ExperienceDetails from "./components/ExperienceDetails.vue";
 import LabeledImage from "./components/LabeledImage.vue";
 import Project from "./components/Project.vue";
+import ThemeToggle from "./components/ThemeToggle.vue";
 
 const stack = {
   php: "PHP",
@@ -18,9 +19,8 @@ const stack = {
 <template>
   <main>    
     <section id="intro">
-      <h1>Hey! I'm Nazar</h1>
-      <p>I am a Full Stack Developer based in Porto, Portugal <img class="flag" src="/assets/icons/pt.png" alt="Portugal flag" title="Portugal flag"> always looking for new challenges. If you have a project that you would like to work on, feel free to contact me.</p>
-      <p></p>
+      <h1>Hey! I'm Nazar <ThemeToggle/></h1>
+      <p>I am a Full Stack Developer based in Porto, Portugal <img class="flag ignoreTheme" src="/assets/icons/pt.png" alt="Portugal flag" title="Portugal flag"> always looking for new challenges. If you have a project that you would like to work on, feel free to contact me.</p>      
       <ul>
         <li>
           <a href="https://github.com/totdy" target="_blank">
@@ -38,13 +38,9 @@ const stack = {
           </a>
         </li>
       </ul>
-    </section>
-    <section id="map">
-      <h4>Based in Porto, Portugal <img class="flag" src="/assets/icons/pt.png" alt="Portugal flag" title="Portugal flag"></h4>
-      <Map />
-    </section>
+    </section>    
     <section id="stack">
-      <h3 class="title">My Stack</h3>
+      <h4 class="title">My Stack</h4>
       <div class="stack"> 
         <div v-for=" (val, key) in stack">
           <LabeledImage :img="key + '.png'" :title="val" />
@@ -52,21 +48,19 @@ const stack = {
       </div>      
     </section>
     <section id="work">
-      <h3 class="title">Work Experience</h3>
+      <h4 class="title">Work Experience</h4>
       <Experience at="iS Intelligent Solutions" atLink="https://is-intelligentsolutions.com" logo="is.png">
         <ExperienceDetails 
           title="Full Stack Developer" 
-          :intern="false" 
           :when="['May 2021', 'Sep 2023']"
           :whats="[
             'Improved system security by implementing two-factor authentication (2FA)',
             'Developed calendar management tools for the support team, allowing clear visualization of schedules and improved coordination of daily workforce activities',
             'Built automation scripts to collect, transform, and import data from multiple sources and formats, including CSV and XLSX files and REST/SOAP APIs, into a centralized database, improving data integration and reducing manual processing'
           ]"
-          :skills="['HTML|CSS|JS', 'PHP', 'MySQL', 'API (REST & SOAP)', 'Automations', 'Database Management', '2FA']" />
+          :skills="['HTML•CSS•JS', 'PHP', 'MySQL', 'API (REST & SOAP)', 'Automations', 'Database Management', '2FA']" />
         <ExperienceDetails 
           title="Computer Assistant Internship" 
-          :intern="true" 
           :when="['Feb 2019', 'Jun 2019']"
           :whats="[
             'Designed and implemented dynamic, responsive web pages with a focus on usability and performance',
@@ -77,7 +71,6 @@ const stack = {
       <Experience at="Porto Business School" atLink="https://www.pbs.up.pt" logo="pbs.png">
         <ExperienceDetails 
           title="Technical Support Internship" 
-          :intern="true" 
           :when="['Feb 2016', 'Jun 2016']"
           :whats="[
             'Responded to help desk tickets, diagnosing software and hardware problems',
@@ -88,7 +81,7 @@ const stack = {
       </Experience>
     </section>
     <section id="projects">
-      <h3 class="title">Projects</h3>
+      <h4 class="title">Projects</h4>
       <Project 
         name="Home Away" 
         description="Developed a simple Airbnb clone as my final project."
@@ -103,7 +96,6 @@ const stack = {
 <style scoped>
 
 #intro { grid-area: intro;}
-#map { grid-area: map; display: none;}
 #stack { grid-area: stack;}
 #work { grid-area: work;}
 #projects { grid-area: projects;}
@@ -129,8 +121,13 @@ const stack = {
   grid-template-rows: auto;
   align-items: center;
   justify-items: center;
-  align-content: space-evenly;
-  row-gap: 1rem;
+  align-content: space-evenly;  
+}
+
+#intro h1{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 main {
@@ -142,7 +139,7 @@ main {
       "intro intro stack"
       "work work work"
       "projects projects projects";
-  grid-template-rows: auto;
+  grid-template-rows: auto;  
 }
 
 @media (max-width: 900px) {
